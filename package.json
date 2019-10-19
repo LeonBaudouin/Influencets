@@ -1,0 +1,30 @@
+{
+  "name": "starter-kit",
+  "version": "1.0.0",
+  "description": "a minimalist starter kit",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "prettify": "prettier --config prettier.config.js --write src/**",
+    "build": "webpack-cli"
+  },
+  "author": "gasp",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.4",
+    "copy-webpack-plugin": "^5.0.4",
+    "prettier": "^1.18.2",
+    "ts-loader": "^6.1.2",
+    "typescript": "^3.6.3",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.6"
+  }
+}
