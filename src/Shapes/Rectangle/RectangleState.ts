@@ -16,7 +16,7 @@ export default class RectangleState implements StateObjectInterface, RectangleSt
         this.color = color;
     } 
 
-    Clone(): RectangleState {
+    clone(): RectangleState {
         return new RectangleState(this);
     }
     

@@ -1,7 +1,7 @@
 import { DrawableInterface } from "./DrawableInterface";
 
 export interface GeneratorInterface {
-    FirstGeneration(): DrawableInterface[]
-    Generate(): DrawableInterface[]
-    Remove(drawables: DrawableInterface[]): DrawableInterface[]
+  firstGeneration(): DrawableInterface[];
+  generate(): DrawableInterface[];
+  remove(drawables: DrawableInterface[]): DrawableInterface[];
 }

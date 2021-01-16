@@ -1,58 +1,66 @@
 import { TaggableObject } from "./TaggableObject";
 import { DrawableInterface } from "./DrawableInterface";
 
-export abstract class AbstractDrawableObject extends TaggableObject implements DrawableInterface {
-    
-    protected _isPaused: boolean
-    protected _isVisible: boolean
-    protected _isActive: boolean
+export abstract class AbstractDrawableObject
+  extends TaggableObject
+  implements DrawableInterface {
+  protected _isPaused: boolean;
+  protected _isVisible: boolean;
+  protected _isActive: boolean;
 
-    constructor(tags: string[] = [], startPaused = false, startVisible = true, startActive = true) {
-        super(tags)
-        this._isPaused = startPaused
-        this._isVisible = startVisible
-        this._isActive = startActive
-    }
-    
-    abstract Draw(ctx: CanvasRenderingContext2D): void
-    
-    Update(): void {}
+  constructor(
+    tags: string[] = [],
+    startPaused = false,
+    startVisible = true,
+    startActive = true,
+  ) {
+    super(tags);
+    this._isPaused = startPaused;
+    this._isVisible = startVisible;
+    this._isActive = startActive;
+  }
 
-    isPaused(): boolean {
-        return this._isPaused
-    }
+  abstract onCreate(): void;
 
-    pause(): void {
-        this._isPaused = true
-    }
+  abstract onDestroy(): void;
 
-    resume(): void {
-        this._isPaused = false
-    }
+  abstract draw(ctx: CanvasRenderingContext2D): void;
 
-    isVisible(): boolean {
-        return this._isVisible
-    }
+  update(): void {}
 
-    hide(): void {
-        this._isVisible = false
-    }
+  isPaused(): boolean {
+    return this._isPaused;
+  }
 
-    show(): void {
-        this._isVisible = true
-    }
+  pause(): void {
+    this._isPaused = true;
+  }
 
-    isActive(): boolean {
-        return this._isActive
-    }
+  resume(): void {
+    this._isPaused = false;
+  }
 
-    desactivate(): void {
-        this._isActive = false
-    }
+  isVisible(): boolean {
+    return this._isVisible;
+  }
 
-    activate(): void {
-        this._isActive = true
-    }
-    
+  hide(): void {
+    this._isVisible = false;
+  }
 
+  show(): void {
+    this._isVisible = true;
+  }
+
+  isActive(): boolean {
+    return this._isActive;
+  }
+
+  desactivate(): void {
+    this._isActive = false;
+  }
+
+  activate(): void {
+    this._isActive = true;
+  }
 }

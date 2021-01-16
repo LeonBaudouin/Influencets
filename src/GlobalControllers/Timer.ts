@@ -14,7 +14,9 @@ export default class Timer implements GlobalControllerInterface {
         return Timer.instance;
     }
 
-    Update(): void {
+    onCreate(): void {}
+    onDestroy(): void {}
+    update(): void {
         const now = Date.now();
         this.deltaTime = now - this.lastFrame;
         this.lastFrame = now;

@@ -1,28 +1,28 @@
-import { ControllerInterface } from "../Core/Abstract/Controller/ControllerInterface";
+import { AbstractController } from "../Core/Abstract/Controller/AbstractController";
 import { PhysicState } from "../Core/Abstract/State/BaseStates";
 import { StateObjectInterface } from "../Core/Abstract/State/StateObjectInterface";
 import Timer from "../GlobalControllers/Timer";
 
 type PhysicStateType = PhysicState & StateObjectInterface;
 
-export default class PhysicUpdate implements ControllerInterface {
+export default class PhysicUpdate extends AbstractController {
 
     private inertia: number;
     private timer: Timer;
 
-    constructor({inertia} : {inertia: number}) {
+    constructor({ inertia }: { inertia: number }) {
+        super()
         this.inertia = inertia;
         this.timer = Timer.getInstance();
     }
 
-    Update(
+    update(
         currentState: PhysicStateType,
-        defaultState: PhysicStateType
     ): PhysicStateType {
         const deltaTime = this.timer.getDeltaTime();
         const expectedFps = this.timer.getExpectedFps();
 
-        const newState = <PhysicStateType>currentState.Clone();
+        const newState = <PhysicStateType>currentState.clone();
         newState.acceleration = {x: 0, y: 0};
         const newVelocity = {
             x: currentState.velocity.x + currentState.acceleration.x * (deltaTime / expectedFps) / (1 - this.inertia),

@@ -5,5 +5,5 @@ raf();
 
 function raf() {
   requestAnimationFrame(raf);
-  canvas.Loop();
+  canvas.loop();
 }

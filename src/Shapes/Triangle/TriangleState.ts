@@ -16,7 +16,7 @@ export default class TriangleState implements StateObjectInterface, TriangleStat
         this.angle = angle;
     }
 
-    Clone(): TriangleState {
+    clone(): TriangleState {
         return new TriangleState(this);
     }
 }

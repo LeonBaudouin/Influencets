@@ -15,7 +15,7 @@ export default class CircleState implements StateObjectInterface, CircleStatePar
         this.position = {...position};
     }
 
-    Clone(): CircleState {
+    clone(): CircleState {
         return new CircleState(this);
     }
 

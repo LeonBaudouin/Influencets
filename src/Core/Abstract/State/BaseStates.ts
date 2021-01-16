@@ -2,22 +2,22 @@ import { Point } from "../../CustomTypes/Point";
 import { Size } from "../../CustomTypes/Size";
 
 export interface PositionState {
-    position: Point;
+  position: Point;
 }
 
 export interface AngleState {
-    angle: number;
+  angle: number;
 }
 
 export interface OneDimensionSizeState {
-    size: number;
+  size: number;
 }
 
 export interface TwoDimensionSizeState {
-    size: Size;
+  size: Size;
 }
 
 export interface PhysicState extends PositionState {
-    velocity: Point
-    acceleration: Point
+  velocity: Point;
+  acceleration: Point;
 }

@@ -12,7 +12,7 @@ export default class PhysicCircleState extends CircleState implements PhysicStat
         this.acceleration = {...params.acceleration};
     }
 
-    public Clone(): PhysicCircleState {
+    public clone(): PhysicCircleState {
         return new PhysicCircleState(this);
     }
 }

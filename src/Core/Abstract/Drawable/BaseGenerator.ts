@@ -2,33 +2,42 @@ import { DrawableInterface } from "./DrawableInterface";
 import { GeneratorInterface } from "./GeneratorInterface";
 import { AbstractDrawableObject } from "./AbstractDrawableObject";
 
-export class BaseGenerator extends AbstractDrawableObject {
+// --------------------------
+// Old object, should refacto
+// but not now
+// --------------------------
 
-    private generator: GeneratorInterface
-    private drawables: DrawableInterface[] = []
+export abstract class BaseGenerator extends AbstractDrawableObject {
+  private generator: GeneratorInterface;
+  private drawables: DrawableInterface[] = [];
 
-    constructor(generator: GeneratorInterface, tags: string[] = [], startPaused: boolean = false, startVisible: boolean = true) {
-        super(tags, startPaused, startVisible)
-        this.generator = generator
-        this.drawables = generator.FirstGeneration();
+  constructor(
+    generator: GeneratorInterface,
+    tags: string[] = [],
+    startPaused: boolean = false,
+    startVisible: boolean = true,
+  ) {
+    super(tags, startPaused, startVisible);
+    this.generator = generator;
+    this.drawables = generator.firstGeneration();
+  }
+
+  draw(ctx: CanvasRenderingContext2D): void {
+    if (this.isVisible() && this.isActive()) {
+      this.drawables.forEach((drawable) => {
+        drawable.draw(ctx);
+      });
     }
+  }
 
-    Draw(ctx: CanvasRenderingContext2D): void {
-        if (this.isVisible() && this.isActive()) {
-            this.drawables.forEach(drawable => {
-                drawable.Draw(ctx)
-            })
-        }
+  update(): void {
+    if (!this.isPaused() && this.isActive()) {
+      this.drawables = this.generator.remove(this.drawables);
+      const generated = this.generator.generate();
+      this.drawables.push(...generated);
     }
-
-    Update(): void {
-        if (!this.isPaused() && this.isActive()) {
-            this.drawables = this.generator.Remove(this.drawables)
-            const generated = this.generator.Generate()
-            this.drawables.push(...generated)
-        }
-        this.drawables.forEach(drawable => {
-            drawable.Update()
-        })
-    }
+    this.drawables.forEach((drawable) => {
+      drawable.update();
+    });
+  }
 }

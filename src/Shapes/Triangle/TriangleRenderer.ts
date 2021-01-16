@@ -2,7 +2,7 @@ import { RendererInterface } from "../../Core/Abstract/Renderer/RendererInterfac
 import TriangleState from "./TriangleState";
 
 export default class TriangleRenderer implements RendererInterface {
-    Render({color, angle, position, size}: TriangleState, ctx: CanvasRenderingContext2D): void {
+    render({color, angle, position, size}: TriangleState, ctx: CanvasRenderingContext2D): void {
         ctx.fillStyle = color.toString();
         ctx.beginPath();
         ctx.moveTo(position.x + Math.cos(Math.PI / 3 * 2 * 0 + angle) * size * 2, position.y + Math.sin(Math.PI / 3 * 2 * 0 + angle) * size * 2);

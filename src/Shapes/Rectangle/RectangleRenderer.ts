@@ -3,7 +3,7 @@ import RectangleState from "./RectangleState";
 
 export default class RectangleRenderer implements RendererInterface {
 
-    Render(state: RectangleState, ctx: CanvasRenderingContext2D): void {
+    render(state: RectangleState, ctx: CanvasRenderingContext2D): void {
         ctx.fillStyle = state.color.toString();
         ctx.fillRect(
             state.position.x - state.size.width / 2,
