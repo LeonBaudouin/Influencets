@@ -1,11 +1,11 @@
-import { RendererInterface } from "../Renderer/RendererInterface";
-import { ControllerInterface } from "../Controller/ControllerInterface";
-import { StateObjectInterface } from "../State/StateObjectInterface";
-import { BaseDrawable } from "./BaseDrawable";
-import { DrawableInterface } from "./DrawableInterface";
+import { RendererInterface } from '../Renderer/RendererInterface'
+import { ControllerInterface } from '../Controller/ControllerInterface'
+import { StateObjectInterface } from '../State/StateObjectInterface'
+import { BaseDrawable } from './BaseDrawable'
+import { DrawableInterface } from './DrawableInterface'
 
 export class NodeDrawable extends BaseDrawable {
-  protected children: DrawableInterface[];
+  protected children: DrawableInterface[]
 
   public constructor(
     defaultState: StateObjectInterface,
@@ -25,30 +25,30 @@ export class NodeDrawable extends BaseDrawable {
       startPaused,
       startVisible,
       startActive,
-    );
-    this.children = children;
+    )
+    this.children = children
   }
 
   public onCreate(): void {
-    super.onCreate();
-    this.children.forEach((c) => c.onCreate());
+    super.onCreate()
+    this.children.forEach((c) => c.onCreate())
   }
 
   public onDestroy(): void {
-    super.onDestroy();
-    this.children.forEach((c) => c.onDestroy());
+    super.onDestroy()
+    this.children.forEach((c) => c.onDestroy())
   }
 
   public draw(ctx: CanvasRenderingContext2D): void {
     if (this.isVisible() && this.isActive()) {
-      this.renderer.render(this.currentState, ctx, this.children);
+      this.renderer.render(this.currentState, ctx, this.children)
     }
   }
 
   public update(): void {
-    super.update();
+    super.update()
     if (!this.isPaused() && this.isActive()) {
-      this.children.forEach((c) => c.update());
+      this.children.forEach((c) => c.update())
     }
   }
 }

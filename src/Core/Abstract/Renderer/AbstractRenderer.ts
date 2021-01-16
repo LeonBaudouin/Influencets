@@ -1,6 +1,6 @@
-import { RendererInterface } from "./RendererInterface";
-import { StateObjectInterface } from "../State/StateObjectInterface";
-import { DrawableInterface } from "../Drawable/DrawableInterface";
+import { RendererInterface } from './RendererInterface'
+import { StateObjectInterface } from '../State/StateObjectInterface'
+import { DrawableInterface } from '../Drawable/DrawableInterface'
 
 export abstract class AbstractRenderer implements RendererInterface {
   // TO DO
@@ -11,19 +11,19 @@ export abstract class AbstractRenderer implements RendererInterface {
     ctx: CanvasRenderingContext2D,
     children: DrawableInterface[],
   ): void {
-    ctx.save();
-    this.transformContext(state, ctx);
-    this.draw(state, ctx);
-    children.forEach((c) => c.draw(ctx));
-    ctx.restore();
+    ctx.save()
+    this.transformContext(state, ctx)
+    this.draw(state, ctx)
+    children.forEach((c) => c.draw(ctx))
+    ctx.restore()
   }
   abstract transformContext(
     state: StateObjectInterface,
     ctx: CanvasRenderingContext2D,
-  ): void;
+  ): void
 
   abstract draw(
     state: StateObjectInterface,
     ctx: CanvasRenderingContext2D,
-  ): void;
+  ): void
 }

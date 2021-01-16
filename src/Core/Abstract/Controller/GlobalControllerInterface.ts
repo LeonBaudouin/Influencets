@@ -1,5 +1,5 @@
 export interface GlobalControllerInterface {
-  update(): void;
-  onCreate(): void;
-  onDestroy(): void;
+  update(): void
+  onCreate(): void
+  onDestroy(): void
 }

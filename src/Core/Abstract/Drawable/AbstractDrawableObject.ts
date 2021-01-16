@@ -1,12 +1,12 @@
-import { TaggableObject } from "./TaggableObject";
-import { DrawableInterface } from "./DrawableInterface";
+import { TaggableObject } from './TaggableObject'
+import { DrawableInterface } from './DrawableInterface'
 
 export abstract class AbstractDrawableObject
   extends TaggableObject
   implements DrawableInterface {
-  protected _isPaused: boolean;
-  protected _isVisible: boolean;
-  protected _isActive: boolean;
+  protected _isPaused: boolean
+  protected _isVisible: boolean
+  protected _isActive: boolean
 
   constructor(
     tags: string[] = [],
@@ -14,53 +14,53 @@ export abstract class AbstractDrawableObject
     startVisible = true,
     startActive = true,
   ) {
-    super(tags);
-    this._isPaused = startPaused;
-    this._isVisible = startVisible;
-    this._isActive = startActive;
+    super(tags)
+    this._isPaused = startPaused
+    this._isVisible = startVisible
+    this._isActive = startActive
   }
 
-  abstract onCreate(): void;
+  abstract onCreate(): void
 
-  abstract onDestroy(): void;
+  abstract onDestroy(): void
 
-  abstract draw(ctx: CanvasRenderingContext2D): void;
+  abstract draw(ctx: CanvasRenderingContext2D): void
 
   update(): void {}
 
   isPaused(): boolean {
-    return this._isPaused;
+    return this._isPaused
   }
 
   pause(): void {
-    this._isPaused = true;
+    this._isPaused = true
   }
 
   resume(): void {
-    this._isPaused = false;
+    this._isPaused = false
   }
 
   isVisible(): boolean {
-    return this._isVisible;
+    return this._isVisible
   }
 
   hide(): void {
-    this._isVisible = false;
+    this._isVisible = false
   }
 
   show(): void {
-    this._isVisible = true;
+    this._isVisible = true
   }
 
   isActive(): boolean {
-    return this._isActive;
+    return this._isActive
   }
 
   desactivate(): void {
-    this._isActive = false;
+    this._isActive = false
   }
 
   activate(): void {
-    this._isActive = true;
+    this._isActive = true
   }
 }

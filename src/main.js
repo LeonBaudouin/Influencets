@@ -1,9 +1,9 @@
-import { CanvasSetup } from "./CanvasSetup"
-const canvas = CanvasSetup();
+import { CanvasSetup } from './CanvasSetup'
+const canvas = CanvasSetup()
 
-raf();
+raf()
 
 function raf() {
-  requestAnimationFrame(raf);
-  canvas.loop();
+  requestAnimationFrame(raf)
+  canvas.loop()
 }

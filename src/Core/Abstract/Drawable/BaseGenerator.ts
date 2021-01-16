@@ -1,6 +1,6 @@
-import { DrawableInterface } from "./DrawableInterface";
-import { GeneratorInterface } from "./GeneratorInterface";
-import { AbstractDrawableObject } from "./AbstractDrawableObject";
+import { DrawableInterface } from './DrawableInterface'
+import { GeneratorInterface } from './GeneratorInterface'
+import { AbstractDrawableObject } from './AbstractDrawableObject'
 
 // --------------------------
 // Old object, should refacto
@@ -8,8 +8,8 @@ import { AbstractDrawableObject } from "./AbstractDrawableObject";
 // --------------------------
 
 export abstract class BaseGenerator extends AbstractDrawableObject {
-  private generator: GeneratorInterface;
-  private drawables: DrawableInterface[] = [];
+  private generator: GeneratorInterface
+  private drawables: DrawableInterface[] = []
 
   constructor(
     generator: GeneratorInterface,
@@ -17,27 +17,27 @@ export abstract class BaseGenerator extends AbstractDrawableObject {
     startPaused: boolean = false,
     startVisible: boolean = true,
   ) {
-    super(tags, startPaused, startVisible);
-    this.generator = generator;
-    this.drawables = generator.firstGeneration();
+    super(tags, startPaused, startVisible)
+    this.generator = generator
+    this.drawables = generator.firstGeneration()
   }
 
   draw(ctx: CanvasRenderingContext2D): void {
     if (this.isVisible() && this.isActive()) {
       this.drawables.forEach((drawable) => {
-        drawable.draw(ctx);
-      });
+        drawable.draw(ctx)
+      })
     }
   }
 
   update(): void {
     if (!this.isPaused() && this.isActive()) {
-      this.drawables = this.generator.remove(this.drawables);
-      const generated = this.generator.generate();
-      this.drawables.push(...generated);
+      this.drawables = this.generator.remove(this.drawables)
+      const generated = this.generator.generate()
+      this.drawables.push(...generated)
     }
     this.drawables.forEach((drawable) => {
-      drawable.update();
-    });
+      drawable.update()
+    })
   }
 }

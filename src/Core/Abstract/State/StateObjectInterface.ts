@@ -1,3 +1,3 @@
 export interface StateObjectInterface {
-  clone(): StateObjectInterface;
+  clone(): StateObjectInterface
 }

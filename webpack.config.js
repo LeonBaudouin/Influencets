@@ -19,7 +19,7 @@ module.exports = {
       {
         test: /\.ts$/,
         use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.js$/,
@@ -34,7 +34,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js', '.json']
+    extensions: ['.ts', '.js', '.json'],
   },
   plugins: [
     new CopyPlugin([

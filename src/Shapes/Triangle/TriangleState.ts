@@ -1,26 +1,34 @@
-import { StateObjectInterface } from "../../Core/Abstract/State/StateObjectInterface";
-import { OneDimensionSizeState, PositionState, AngleState } from "../../Core/Abstract/State/BaseStates";
-import Color from "../../Core/CustomTypes/Color";
-import { Point } from "../../Core/CustomTypes/Point";
+import { StateObjectInterface } from '../../Core/Abstract/State/StateObjectInterface'
+import {
+  OneDimensionSizeState,
+  PositionState,
+  AngleState,
+} from '../../Core/Abstract/State/BaseStates'
+import Color from '../../Core/CustomTypes/Color'
+import { Point } from '../../Core/CustomTypes/Point'
 
-export default class TriangleState implements StateObjectInterface, TriangleStateParams {
-    color: Color;
-    size: number;
-    position: Point;
-    angle: number;
+export default class TriangleState
+  implements StateObjectInterface, TriangleStateParams {
+  color: Color
+  size: number
+  position: Point
+  angle: number
 
-    constructor({color, size, position, angle}: TriangleStateParams) {
-        this.color = color;
-        this.size = size;
-        this.position = {...position};
-        this.angle = angle;
-    }
+  constructor({ color, size, position, angle }: TriangleStateParams) {
+    this.color = color
+    this.size = size
+    this.position = { ...position }
+    this.angle = angle
+  }
 
-    clone(): TriangleState {
-        return new TriangleState(this);
-    }
+  clone(): TriangleState {
+    return new TriangleState(this)
+  }
 }
 
-export interface TriangleStateParams extends OneDimensionSizeState, PositionState, AngleState {
-    color: Color
+export interface TriangleStateParams
+  extends OneDimensionSizeState,
+    PositionState,
+    AngleState {
+  color: Color
 }
