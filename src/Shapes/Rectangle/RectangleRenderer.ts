@@ -1,4 +1,4 @@
-import { RendererInterface } from "../../Core/Abstract/RendererInterface";
+import { RendererInterface } from "../../Core/Abstract/Renderer/RendererInterface";
 import RectangleState from "./RectangleState";
 
 export default class RectangleRenderer implements RendererInterface {

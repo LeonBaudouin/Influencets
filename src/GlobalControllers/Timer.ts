@@ -1,4 +1,4 @@
-import { GlobalControllerInterface } from "../Core/Abstract/GlobalControllerInterface";
+import { GlobalControllerInterface } from "../Core/Abstract/Controller/GlobalControllerInterface";
 
 export default class Timer implements GlobalControllerInterface {
 

@@ -1,6 +1,6 @@
 import { Canvas } from "./Core/Canvas";
 import Timer from "./GlobalControllers/Timer";
-import BaseDrawable from "./Core/Abstract/BaseDrawable";
+import BaseDrawable from "./Core/Abstract/Drawable/BaseDrawable";
 import CircleState from "./Shapes/Circle/CircleState";
 import Color from "./Core/CustomTypes/Color";
 import CircleRenderer from "./Shapes/Circle/CircleRenderer";

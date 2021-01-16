@@ -1,6 +1,6 @@
-import { ControllerInterface } from "../Core/Abstract/ControllerInterface";
-import { StateObjectInterface } from "../Core/Abstract/StateObjectInterface";
-import { PositionState } from "../Core/Abstract/BaseStates";
+import { ControllerInterface } from "../Core/Abstract/Controller/ControllerInterface";
+import { StateObjectInterface } from "../Core/Abstract/State/StateObjectInterface";
+import { PositionState } from "../Core/Abstract/State/BaseStates";
 
 type SizeState = StateObjectInterface & PositionState;
 type PositionOverTimeFunc = (time: number, amount: number, offset: number) => number

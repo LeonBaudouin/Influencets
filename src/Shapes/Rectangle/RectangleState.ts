@@ -1,7 +1,7 @@
-import { StateObjectInterface } from "../../Core/Abstract/StateObjectInterface";
+import { StateObjectInterface } from "../../Core/Abstract/State/StateObjectInterface";
 import { Point } from "../../Core/CustomTypes/Point";
 import { Size } from "../../Core/CustomTypes/Size";
-import { PositionState, TwoDimensionSizeState } from "../../Core/Abstract/BaseStates";
+import { PositionState, TwoDimensionSizeState } from "../../Core/Abstract/State/BaseStates";
 import Color from "../../Core/CustomTypes/Color";
 
 export default class RectangleState implements StateObjectInterface, RectangleStateParams {

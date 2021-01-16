@@ -1,4 +1,4 @@
-import { RendererInterface } from "../../Core/Abstract/RendererInterface";
+import { RendererInterface } from "../../Core/Abstract/Renderer/RendererInterface";
 import CircleState from "./CircleState";
 
 export default class CircleRenderer implements RendererInterface {

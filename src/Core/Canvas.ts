@@ -1,6 +1,6 @@
 import { Size } from "./CustomTypes/Size";
-import { DrawableInterface } from "./Abstract/DrawableInterface";
-import { GlobalControllerInterface } from "./Abstract/GlobalControllerInterface";
+import { DrawableInterface } from "./Abstract/Drawable/DrawableInterface";
+import { GlobalControllerInterface } from "./Abstract/Controller/GlobalControllerInterface";
 
 export class Canvas {
 

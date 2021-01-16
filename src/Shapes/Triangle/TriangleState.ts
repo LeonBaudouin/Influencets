@@ -1,5 +1,5 @@
-import { StateObjectInterface } from "../../Core/Abstract/StateObjectInterface";
-import { OneDimensionSizeState, PositionState, AngleState } from "../../Core/Abstract/BaseStates";
+import { StateObjectInterface } from "../../Core/Abstract/State/StateObjectInterface";
+import { OneDimensionSizeState, PositionState, AngleState } from "../../Core/Abstract/State/BaseStates";
 import Color from "../../Core/CustomTypes/Color";
 import { Point } from "../../Core/CustomTypes/Point";
 

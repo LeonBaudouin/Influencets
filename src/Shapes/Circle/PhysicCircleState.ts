@@ -1,5 +1,5 @@
 import CircleState, { CircleStateParams } from "./CircleState";
-import { PhysicState } from "../../Core/Abstract/BaseStates";
+import { PhysicState } from "../../Core/Abstract/State/BaseStates";
 import { Point } from "../../Core/CustomTypes/Point";
 
 export default class PhysicCircleState extends CircleState implements PhysicState {

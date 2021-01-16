@@ -1,6 +1,6 @@
-import { RendererInterface } from "./RendererInterface";
-import { ControllerInterface } from "./ControllerInterface";
-import { StateObjectInterface } from "./StateObjectInterface";
+import { RendererInterface } from "../Renderer/RendererInterface";
+import { ControllerInterface } from "../Controller/ControllerInterface";
+import { StateObjectInterface } from "../State/StateObjectInterface";
 import { AbstractDrawableObject } from "./AbstractDrawableObject";
 
 export default class BaseDrawable extends AbstractDrawableObject {

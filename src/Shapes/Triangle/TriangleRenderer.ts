@@ -1,4 +1,4 @@
-import { RendererInterface } from "../../Core/Abstract/RendererInterface";
+import { RendererInterface } from "../../Core/Abstract/Renderer/RendererInterface";
 import TriangleState from "./TriangleState";
 
 export default class TriangleRenderer implements RendererInterface {

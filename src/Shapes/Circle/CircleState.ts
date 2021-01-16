@@ -1,7 +1,7 @@
-import { StateObjectInterface } from "../../Core/Abstract/StateObjectInterface";
+import { StateObjectInterface } from "../../Core/Abstract/State/StateObjectInterface";
 import { Point } from "../../Core/CustomTypes/Point";
 import Color from "../../Core/CustomTypes/Color";
-import { OneDimensionSizeState, PositionState } from "../../Core/Abstract/BaseStates";
+import { OneDimensionSizeState, PositionState } from "../../Core/Abstract/State/BaseStates";
 
 export default class CircleState implements StateObjectInterface, CircleStateParams {
 

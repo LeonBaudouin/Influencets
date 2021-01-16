@@ -1,6 +1,6 @@
-import { ControllerInterface } from "../Core/Abstract/ControllerInterface";
-import { PhysicState } from "../Core/Abstract/BaseStates";
-import { StateObjectInterface } from "../Core/Abstract/StateObjectInterface";
+import { ControllerInterface } from "../Core/Abstract/Controller/ControllerInterface";
+import { PhysicState } from "../Core/Abstract/State/BaseStates";
+import { StateObjectInterface } from "../Core/Abstract/State/StateObjectInterface";
 import Timer from "../GlobalControllers/Timer";
 
 type PhysicStateType = PhysicState & StateObjectInterface;

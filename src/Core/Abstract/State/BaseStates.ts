@@ -1,5 +1,5 @@
-import { Point } from "../CustomTypes/Point";
-import { Size } from "../CustomTypes/Size";
+import { Point } from "../../CustomTypes/Point";
+import { Size } from "../../CustomTypes/Size";
 
 export interface PositionState {
     position: Point;
