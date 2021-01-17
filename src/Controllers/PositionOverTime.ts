@@ -1,4 +1,3 @@
-import { ControllerInterface } from '../Core/Abstract/Controller/ControllerInterface'
 import { StateObjectInterface } from '../Core/Abstract/State/StateObjectInterface'
 import { PositionState } from '../Core/Abstract/State/BaseStates'
 import { AbstractController } from '../Core/Abstract/Controller/AbstractController'
@@ -16,7 +15,7 @@ export default class PositionOverTime extends AbstractController {
   private amount: number
   private XFunc: PositionOverTimeFunc
   private YFunc: PositionOverTimeFunc
-  private time: number = 0
+  private time = 0
   private defaultPos: Point
 
   constructor({

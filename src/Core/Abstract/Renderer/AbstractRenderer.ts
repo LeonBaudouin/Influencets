@@ -17,6 +17,7 @@ export abstract class AbstractRenderer implements RendererInterface {
     children.forEach((c) => c.draw(ctx))
     ctx.restore()
   }
+
   abstract transformContext(
     state: StateObjectInterface,
     ctx: CanvasRenderingContext2D,

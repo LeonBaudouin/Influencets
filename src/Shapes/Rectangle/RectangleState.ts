@@ -13,7 +13,12 @@ export default class RectangleState
   size: Size
   color: Color
 
-  constructor({ position, size, color }: RectangleStateParams) {
+  constructor({
+    position = { x: 0, y: 0 },
+    size,
+    color,
+  }: Omit<RectangleStateParams, 'position'> &
+    Partial<Pick<RectangleStateParams, 'position'>>) {
     this.position = { ...position }
     this.size = { ...size }
     this.color = color

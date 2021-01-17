@@ -1,14 +1,18 @@
-import { RendererInterface } from '../../Core/Abstract/Renderer/RendererInterface'
+import { AbstractRenderer } from '../../Core/Abstract/Renderer/AbstractRenderer'
 import CircleState from './CircleState'
 
-export default class CircleRenderer implements RendererInterface {
-  render(
-    { color, position, size }: CircleState,
+export default class CircleRenderer extends AbstractRenderer {
+  transformContext(
+    { color, position }: CircleState,
     ctx: CanvasRenderingContext2D,
   ): void {
+    ctx.translate(position.x, position.y)
     ctx.fillStyle = color.toString()
+  }
+
+  draw({ size }: CircleState, ctx: CanvasRenderingContext2D): void {
     ctx.beginPath()
-    ctx.arc(position.x, position.y, size, 0, 2 * Math.PI)
+    ctx.arc(0, 0, size, 0, 2 * Math.PI)
     ctx.fill()
     ctx.closePath()
   }

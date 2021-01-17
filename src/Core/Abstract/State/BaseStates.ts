@@ -5,8 +5,8 @@ export interface PositionState {
   position: Point
 }
 
-export interface AngleState {
-  angle: number
+export interface RotationState {
+  rotation: number
 }
 
 export interface OneDimensionSizeState {

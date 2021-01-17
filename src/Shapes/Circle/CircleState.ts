@@ -12,7 +12,12 @@ export default class CircleState
   public size: number
   public position: Point
 
-  constructor({ color, size, position }: CircleStateParams) {
+  constructor({
+    color,
+    size,
+    position,
+  }: Omit<CircleStateParams, 'position'> &
+    Partial<Pick<CircleStateParams, 'position'>>) {
     this.color = color
     this.size = size
     this.position = { ...position }
