@@ -16,32 +16,31 @@ export function CanvasSetup(): Canvas {
   const center = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
 
   const drawnObject = [
-    new NodeDrawable(
-      new RectangleState({
+    new NodeDrawable({
+      state: new RectangleState({
         size: { width: window.innerWidth, height: window.innerHeight },
         position: { ...center },
         color: new Color(255, 255, 255, 0.3),
       }),
-      new RectangleRenderer(),
-    ),
-    new NodeDrawable(
-      new EmptyObjectState({
+      renderer: new RectangleRenderer(),
+    }),
+    new NodeDrawable({
+      state: new EmptyObjectState({
         position: { ...center },
       }),
-      new EmptyObjectRenderer(),
-      [],
-      [new RotationOverTime({ speed: 0.02 })],
-      [
-        new NodeDrawable(
-          new CircleState({
+      renderer: new EmptyObjectRenderer(),
+      controllers: [new RotationOverTime({ speed: 0.02 })],
+      children: [
+        new NodeDrawable({
+          state: new CircleState({
             color: new Color(0, 0, 0),
             size: 30,
             position: { x: 100, y: 0 },
           }),
-          new CircleRenderer(),
-        ),
-        new NodeDrawable(
-          new CircleState({
+          renderer: new CircleRenderer(),
+        }),
+        new NodeDrawable({
+          state: new CircleState({
             color: new Color(0, 0, 0),
             size: 30,
             position: {
@@ -49,10 +48,10 @@ export function CanvasSetup(): Canvas {
               y: Math.sin((2 * Math.PI) / 3) * 100,
             },
           }),
-          new CircleRenderer(),
-        ),
-        new NodeDrawable(
-          new CircleState({
+          renderer: new CircleRenderer(),
+        }),
+        new NodeDrawable({
+          state: new CircleState({
             color: new Color(0, 0, 0),
             size: 30,
             position: {
@@ -60,10 +59,10 @@ export function CanvasSetup(): Canvas {
               y: Math.sin(-(2 * Math.PI) / 3) * 100,
             },
           }),
-          new CircleRenderer(),
-        ),
+          renderer: new CircleRenderer(),
+        }),
       ],
-    ),
+    }),
   ]
 
   const timer = Timer.getInstance()

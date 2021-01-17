@@ -3,36 +3,44 @@ import { ControllerInterface } from '../Controller/ControllerInterface'
 import { StateObjectInterface } from '../State/StateObjectInterface'
 import { AbstractDrawableObject } from './AbstractDrawableObject'
 
+export type BaseDrawableOptions = {
+  state: StateObjectInterface
+  renderer: RendererInterface
+  tags?: string | string[]
+  controllers?: ControllerInterface[]
+  isPaused?: boolean
+  isVisible?: boolean
+  isActive?: boolean
+}
+
 export class BaseDrawable extends AbstractDrawableObject {
   protected renderer: RendererInterface
   protected controllers: ControllerInterface[]
-  protected currentState: StateObjectInterface
-  protected defaultState: StateObjectInterface
+  protected state: StateObjectInterface
 
-  public constructor(
-    defaultState: StateObjectInterface,
-    renderer: RendererInterface,
-    tags: string[] = [],
-    controllers: ControllerInterface[] = [],
-    startPaused = false,
-    startVisible = true,
-    startActive = true,
-  ) {
-    super(tags, startPaused, startVisible, startActive)
-    this.defaultState = defaultState.clone()
-    this.currentState = defaultState.clone()
+  public constructor({
+    state,
+    renderer,
+    tags = [],
+    controllers = [],
+    isPaused = false,
+    isVisible = true,
+    isActive = true,
+  }: BaseDrawableOptions) {
+    super(Array.isArray(tags) ? tags : [tags], isPaused, isVisible, isActive)
+    this.state = state.clone()
     this.renderer = renderer
     this.controllers = controllers
   }
 
   public draw(ctx: CanvasRenderingContext2D): void {
     if (this.isVisible() && this.isActive()) {
-      this.renderer.render(this.currentState, ctx, [])
+      this.renderer.render(this.state, ctx, [])
     }
   }
 
   public onCreate(): void {
-    this.controllers.forEach((c) => c.onCreate(this.currentState))
+    this.controllers.forEach((c) => c.onCreate(this.state))
   }
 
   public onDestroy(): void {
@@ -45,15 +53,12 @@ export class BaseDrawable extends AbstractDrawableObject {
 
   public update(): void {
     if (!this.isPaused() && this.isActive()) {
-      this.currentState = this.controllers.reduce(
-        (a, c) => c.update(a),
-        this.currentState,
-      )
+      this.state = this.controllers.reduce((a, c) => c.update(a), this.state)
     }
   }
 
   public getState(): StateObjectInterface {
-    return this.currentState
+    return this.state
   }
 
   public getControllers(): ControllerInterface[] {

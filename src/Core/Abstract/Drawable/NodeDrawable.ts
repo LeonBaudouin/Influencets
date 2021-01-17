@@ -1,31 +1,15 @@
-import { RendererInterface } from '../Renderer/RendererInterface'
-import { ControllerInterface } from '../Controller/ControllerInterface'
-import { StateObjectInterface } from '../State/StateObjectInterface'
-import { BaseDrawable } from './BaseDrawable'
+import { BaseDrawable, BaseDrawableOptions } from './BaseDrawable'
 import { DrawableInterface } from './DrawableInterface'
+
+export type NodeDrawableOptions = BaseDrawableOptions & {
+  children?: DrawableInterface[]
+}
 
 export class NodeDrawable extends BaseDrawable {
   protected children: DrawableInterface[]
 
-  public constructor(
-    defaultState: StateObjectInterface,
-    renderer: RendererInterface,
-    tags: string[] = [],
-    controllers: ControllerInterface[] = [],
-    children: DrawableInterface[] = [],
-    startPaused = false,
-    startVisible = true,
-    startActive = true,
-  ) {
-    super(
-      defaultState,
-      renderer,
-      tags,
-      controllers,
-      startPaused,
-      startVisible,
-      startActive,
-    )
+  public constructor({ children = [], ...options }: NodeDrawableOptions) {
+    super(options)
     this.children = children
   }
 
@@ -41,7 +25,7 @@ export class NodeDrawable extends BaseDrawable {
 
   public draw(ctx: CanvasRenderingContext2D): void {
     if (this.isVisible() && this.isActive()) {
-      this.renderer.render(this.currentState, ctx, this.children)
+      this.renderer.render(this.state, ctx, this.children)
     }
   }
 
