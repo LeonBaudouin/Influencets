@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "prettify": "prettier --config prettier.config.js --write src/**",
+    "prettify": "prettier --config .prettierrc.json --write src/**",
     "build": "webpack-cli"
   },
   "author": "gasp",
